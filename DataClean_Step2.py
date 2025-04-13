@@ -2,9 +2,7 @@ import csv
 import re
 
 input_file = "original_data.csv"
-
 output_file = "cleaned_data.csv"
-
 date_pattern = re.compile(r"\d{4}-\d{2}-\d{2}")
 
 with open(input_file, "r", newline='', encoding="utf-8") as infile:
@@ -24,6 +22,6 @@ if start_index is not None:
         for row in rows[start_index:]:
             if row and len(row) == 6:
                 writer.writerow(row)
-    print(f"Данните са почистени и записани в {output_file}")
+    print(f"Данните са запазени в {output_file}")
 else:
-    print("Не е намерен валиден ред с дата.")
+    print("Невалидни данни.")

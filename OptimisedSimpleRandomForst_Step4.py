@@ -17,17 +17,17 @@ creator.create("Individual", list, fitness=creator.FitnessMin)
 
 def create_individual():
     return [
-        np.random.randint(50, 200),   # n_estimators
-        np.random.randint(5, 50),     # max_depth
-        np.random.uniform(0.0001, 1.0),  # min_samples_split
-        np.random.randint(1, 20)      # min_samples_leaf
+        np.random.randint(50, 200),
+        np.random.randint(5, 50),
+        np.random.uniform(0.0001, 1.0),
+        np.random.randint(1, 20)
     ]
 
 def repair_individual(individual):
-    individual[0] = int(np.clip(round(individual[0]), 50, 200))         # n_estimators
-    individual[1] = int(np.clip(round(individual[1]), 5, 50))           # max_depth
-    individual[2] = float(np.clip(individual[2], 0.0001, 1.0))           # min_samples_split (float)
-    individual[3] = int(np.clip(round(individual[3]), 1, 20))            # min_samples_leaf
+    individual[0] = int(np.clip(round(individual[0]), 50, 200))
+    individual[1] = int(np.clip(round(individual[1]), 5, 50))
+    individual[2] = float(np.clip(individual[2], 0.0001, 1.0))
+    individual[3] = int(np.clip(round(individual[3]), 1, 20))
     return individual
 
 def evaluate(individual):
@@ -84,6 +84,7 @@ best_model = RandomForestRegressor(
     min_samples_leaf=best_individual[3],
     random_state=42
 )
+
 best_model.fit(X_train, y_train)
 y_pred_best = best_model.predict(X_test)
 

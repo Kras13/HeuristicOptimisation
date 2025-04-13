@@ -5,9 +5,7 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error
 import numpy as np
 
 data = pd.read_csv('cleaned_data.csv')
-
 X = data[['Open', 'High', 'Low', 'Volume']]
-
 y = data['Close']
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)

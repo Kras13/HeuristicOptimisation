@@ -1,9 +1,6 @@
 import yfinance as yf
 
-ticker = "AAPL"
-
-data = yf.download(ticker, start="2010-01-01", end="2023-01-01")
+data = yf.download("AAPL", start="2010-01-01", end="2025-01-01")
 
 print(data.head())
-
-data.to_csv("apple_stock_data.csv")
+data.to_csv("original_data.csv")
